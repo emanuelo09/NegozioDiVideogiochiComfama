@@ -1,23 +1,63 @@
 package com.example.negoziodivideogiochi.entidades;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "productos")
 public class Producto {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Integer id;
+
+    @Column(name = "nombre")
     private String nombre;
+
+    @Column(name = "foto")
     private String foto;
+
+    @Column(name = "descripcion")
     private String descripcion;
+
+    @Column(name = "cantidad")
     private Integer cantidad;
+
+    @Column(name = "precioUnitario")
     private Double precioUnitario;
+
+    @Column(name = "clasificacion")
     private String clasificacion;
+
+    @Column(name = "marca")
     private String marca;
+
+    @Column(name = "presentacion")
     private String presentacion;
+
+    @Column(name = "peso")
     private Double peso;
+
+    @Column(name = "estado")
     private Boolean estado;
+
+    @Column(name = "proveedor")
     private String proveedor;
+
+    @Column(name = "volumen")
     private Double volumen;
+
+    @Column(name = "fechaIngreso")
     private String fechaIngreso;
+
+    @Column(name = "fechaVencimiento")
     private String fechaVencimiento;
+
+    @Column(name = "aplicaDescuento")
     private Boolean aplicaDescuento;
+
+    @Column(name = "IVA")
+    private String IVA;
 
     public Producto() {
     }
