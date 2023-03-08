@@ -15,12 +15,23 @@ public class ServicioProducto implements ServicioComun<Producto> {
     ProductoRepositorio productoRepositorio;
 
     @Override
-    public List<Producto> buscarTodos() {
-        return null;
+    public List<Producto> buscarTodos() throws Exception {
+
+        try{
+
+            List<Producto> productos = productoRepositorio.findAll();
+            return productos;
+
+        }catch (Exception error){
+
+            throw new Exception(error.getMessage());
+
+        }
+
     }
 
     @Override
-    public Producto buscarPorId(Integer id) {
+    public Producto buscarPorId(Integer id) throws Exception {
 
         try{
 
@@ -29,15 +40,25 @@ public class ServicioProducto implements ServicioComun<Producto> {
 
         }catch (Exception error){
 
-            return null;
-            //throw new Exception(error.getMessage());
+            throw new Exception(error.getMessage());
 
         }
 
     }
 
     @Override
-    public Producto agregar(Producto datos) {
-        return null;
+    public Producto agregar(Producto datos) throws Exception {
+
+        try{
+
+            datos = productoRepositorio.save(datos);
+            return datos;
+
+        }catch (Exception error){
+
+            throw new Exception(error.getMessage());
+
+        }
+
     }
 }
